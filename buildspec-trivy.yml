@@ -1,0 +1,10 @@
+version: 0.2
+phases:
+  install:
+    commands:
+      - apt-get update -y
+      - wget https://github.com/aquasecurity/trivy/releases/download/v0.23.0/trivy_0.23.0_Linux-64bit.deb
+      - dpkg -i trivy_0.23.0_Linux-64bit.deb
+  build:
+    commands:
+      - trivy fs --exit-code 1 ./

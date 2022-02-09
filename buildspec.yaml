@@ -1,0 +1,8 @@
+version: 0.2
+phases:
+  pre_build:
+    commands:
+      - pip install bandit bandit-aws
+  build:
+    commands:
+      - bandit -r .
